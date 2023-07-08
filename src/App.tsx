@@ -1,23 +1,34 @@
-import logo from './assets/logo.svg';
 import styles from './App.module.scss';
-
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/shadcn/accordion';
 function App() {
     return (
         <div className={styles.App}>
-            <header className={styles['App-header']}>
-                <img src={logo} className={styles['App-logo']} alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className={styles['App-link']}
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                    <AccordionContent>
+                        Yes. It adheres to the WAI-ARIA design pattern.
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                    <AccordionTrigger>Is it styled?</AccordionTrigger>
+                    <AccordionContent>
+                        Yes. It comes with default styles that matches the other components'
+                        aesthetic.
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                    <AccordionTrigger>Is it animated?</AccordionTrigger>
+                    <AccordionContent>
+                        Yes. It's animated by default, but you can disable it if you prefer.
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
         </div>
     );
 }
